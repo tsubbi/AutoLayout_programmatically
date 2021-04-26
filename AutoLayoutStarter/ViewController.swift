@@ -55,6 +55,7 @@ class ViewController: UIViewController {
     let orangeView: UIView = {
         let viewContainer = UIView()
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
+        
         let leftView = UIView()
         leftView.translatesAutoresizingMaskIntoConstraints = false
         leftView.backgroundColor = .orange
@@ -68,7 +69,7 @@ class ViewController: UIViewController {
         rightView.layer.borderColor = UIColor.red.cgColor
         rightView.layer.borderWidth = 8
         viewContainer.addSubview(rightView)
-        
+        // setup inner views
         leftView.topAnchor.constraint(equalTo: viewContainer.topAnchor).isActive = true
         leftView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor).isActive = true
         leftView.widthAnchor.constraint(equalTo: viewContainer.widthAnchor, multiplier: 2/3).isActive = true
@@ -80,6 +81,23 @@ class ViewController: UIViewController {
         rightView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor).isActive = true
         
         return viewContainer
+    }()
+    
+    let blueView: UIView = {
+        let containerView = UIView()
+        containerView.translatesAutoresizingMaskIntoConstraints = false
+        
+        let square1 = UIView()
+        square1.translatesAutoresizingMaskIntoConstraints = false
+        square1.backgroundColor = .blue
+        containerView.addSubview(square1)
+        
+        square1.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+        square1.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        square1.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        square1.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
+        
+        return containerView
     }()
     
     var widthAnchor: NSLayoutConstraint?
@@ -96,6 +114,7 @@ class ViewController: UIViewController {
     fileprivate func setupView() {
         self.mainView.addSubview(self.purpleBoxView)
         self.mainView.addSubview(self.orangeView)
+        self.mainView.addSubview(self.blueView)
     }
     
     fileprivate func setupLayout() {
@@ -131,6 +150,11 @@ class ViewController: UIViewController {
         self.orangeView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 20).isActive = true
         self.orangeView.widthAnchor.constraint(equalToConstant: 150).isActive = true
         self.orangeView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        // blue view
+        self.blueView.centerYAnchor.constraint(equalTo: self.mainView.centerYAnchor).isActive = true
+        self.blueView.centerXAnchor.constraint(equalTo: self.mainView.centerXAnchor).isActive = true
+        self.blueView.widthAnchor.constraint(equalToConstant: 80).isActive = true
+        self.blueView.heightAnchor.constraint(equalTo: self.mainView.heightAnchor, multiplier: 8/10).isActive = true
     }
     
     @objc private func squareTapped() {
