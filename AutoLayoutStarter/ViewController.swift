@@ -45,6 +45,13 @@ class ViewController: UIViewController {
         return butt
     }()
     
+    let purpleBoxView: UIView = {
+        let view = UIView()
+        view.backgroundColor = .purple
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
+    
     var widthAnchor: NSLayoutConstraint?
     var heightAnchor: NSLayoutConstraint?
     
@@ -52,11 +59,12 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         view.addSubview(mainView)
+        setupView()
         setupLayout()
     }
     
-    fileprivate func viewSetup() {
-        
+    fileprivate func setupView() {
+        self.mainView.addSubview(self.purpleBoxView)
     }
     
     fileprivate func setupLayout() {
@@ -82,6 +90,11 @@ class ViewController: UIViewController {
             buttStackView.heightAnchor.constraint(equalToConstant: 50),
             buttStackView.widthAnchor.constraint(equalTo: view.widthAnchor)
         ])
+        
+        self.purpleBoxView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
+        self.purpleBoxView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -20).isActive = true
+        self.purpleBoxView.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 0.6).isActive = true
+        self.purpleBoxView.heightAnchor.constraint(equalToConstant: 50).isActive = true
     }
     
     @objc private func squareTapped() {
