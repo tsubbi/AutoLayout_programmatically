@@ -161,8 +161,8 @@ class ViewController: UIViewController {
         // purple view
         self.purpleBoxView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         self.purpleBoxView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -20).isActive = true
-        self.purpleBoxView.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 7/10).isActive = true
-        self.purpleBoxView.heightAnchor.constraint(equalToConstant: 60).isActive = true
+        self.purpleBoxView.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 6/10).isActive = true
+        self.purpleBoxView.heightAnchor.constraint(equalToConstant: 50).isActive = true
         // orange view
         self.orangeView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         self.orangeView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 20).isActive = true
