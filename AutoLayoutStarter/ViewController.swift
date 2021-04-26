@@ -91,11 +91,29 @@ class ViewController: UIViewController {
         square1.translatesAutoresizingMaskIntoConstraints = false
         square1.backgroundColor = .blue
         containerView.addSubview(square1)
+        let square2 = UIView()
+        square2.translatesAutoresizingMaskIntoConstraints = false
+        square2.backgroundColor = .blue
+        containerView.addSubview(square2)
+        let square3 = UIView()
+        square3.translatesAutoresizingMaskIntoConstraints = false
+        square3.backgroundColor = .blue
+        containerView.addSubview(square3)
         
         square1.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
         square1.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
         square1.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
         square1.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
+        
+        square2.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
+        square2.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+        square2.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
+        square2.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
+        
+        square3.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+        square3.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+        square3.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+        square3.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
         
         return containerView
     }()
@@ -144,7 +162,7 @@ class ViewController: UIViewController {
         self.purpleBoxView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         self.purpleBoxView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -20).isActive = true
         self.purpleBoxView.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 7/10).isActive = true
-        self.purpleBoxView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.purpleBoxView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         // orange view
         self.orangeView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         self.orangeView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 20).isActive = true
