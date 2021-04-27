@@ -56,29 +56,25 @@ class ViewController: UIViewController {
         let viewContainer = UIView()
         viewContainer.translatesAutoresizingMaskIntoConstraints = false
         
-        let leftView = UIView()
-        leftView.translatesAutoresizingMaskIntoConstraints = false
-        leftView.backgroundColor = .orange
-        leftView.layer.borderWidth = 8
-        leftView.layer.borderColor = UIColor.red.cgColor
-        viewContainer.addSubview(leftView)
-
-        let rightView = UIView()
-        rightView.translatesAutoresizingMaskIntoConstraints = false
-        rightView.backgroundColor = .orange
-        rightView.layer.borderColor = UIColor.red.cgColor
-        rightView.layer.borderWidth = 8
-        viewContainer.addSubview(rightView)
-        // setup inner views
-        leftView.topAnchor.constraint(equalTo: viewContainer.topAnchor).isActive = true
-        leftView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor).isActive = true
-        leftView.widthAnchor.constraint(equalTo: viewContainer.widthAnchor, multiplier: 2/3).isActive = true
-        leftView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor).isActive = true
-        
-        rightView.topAnchor.constraint(equalTo: viewContainer.topAnchor).isActive = true
-        rightView.leadingAnchor.constraint(equalTo: leftView.trailingAnchor, constant: -8).isActive = true
-        rightView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor).isActive = true
-        rightView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor).isActive = true
+        for i in 0...1 {
+            let someView = UIView()
+            someView.translatesAutoresizingMaskIntoConstraints = false
+            someView.backgroundColor = .orange
+            someView.layer.borderWidth = 8
+            someView.layer.borderColor = UIColor.red.cgColor
+            viewContainer.addSubview(someView)
+            
+            someView.topAnchor.constraint(equalTo: viewContainer.topAnchor).isActive = true
+            someView.bottomAnchor.constraint(equalTo: viewContainer.bottomAnchor).isActive = true
+            switch i {
+            case 1:
+                someView.widthAnchor.constraint(equalTo: viewContainer.widthAnchor, multiplier: 1/3, constant: 8).isActive = true
+                someView.trailingAnchor.constraint(equalTo: viewContainer.trailingAnchor).isActive = true
+            default:
+                someView.leadingAnchor.constraint(equalTo: viewContainer.leadingAnchor).isActive = true
+                someView.widthAnchor.constraint(equalTo: viewContainer.widthAnchor, multiplier: 2/3).isActive = true
+            }
+        }
         
         return viewContainer
     }()
@@ -87,33 +83,25 @@ class ViewController: UIViewController {
         let containerView = UIView()
         containerView.translatesAutoresizingMaskIntoConstraints = false
         
-        let square1 = UIView()
-        square1.translatesAutoresizingMaskIntoConstraints = false
-        square1.backgroundColor = .blue
-        containerView.addSubview(square1)
-        let square2 = UIView()
-        square2.translatesAutoresizingMaskIntoConstraints = false
-        square2.backgroundColor = .blue
-        containerView.addSubview(square2)
-        let square3 = UIView()
-        square3.translatesAutoresizingMaskIntoConstraints = false
-        square3.backgroundColor = .blue
-        containerView.addSubview(square3)
-        
-        square1.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
-        square1.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        square1.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        square1.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
-        
-        square2.centerXAnchor.constraint(equalTo: containerView.centerXAnchor).isActive = true
-        square2.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
-        square2.widthAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
-        square2.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
-        
-        square3.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
-        square3.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
-        square3.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
-        square3.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
+        for i in 0...2 {
+            let square = UIView()
+            square.translatesAutoresizingMaskIntoConstraints = false
+            square.backgroundColor = .blue
+            containerView.addSubview(square)
+            
+            square.heightAnchor.constraint(equalTo: containerView.widthAnchor, multiplier: 1.0).isActive = true
+            square.leadingAnchor.constraint(equalTo: containerView.leadingAnchor).isActive = true
+            square.trailingAnchor.constraint(equalTo: containerView.trailingAnchor).isActive = true
+            // change in y pos
+            switch i {
+            case 1:
+                square.centerYAnchor.constraint(equalTo: containerView.centerYAnchor).isActive = true
+            case 2:
+                square.bottomAnchor.constraint(equalTo: containerView.bottomAnchor).isActive = true
+            default:
+                square.topAnchor.constraint(equalTo: containerView.topAnchor).isActive = true
+            }
+        }
         
         return containerView
     }()
@@ -162,12 +150,12 @@ class ViewController: UIViewController {
         self.purpleBoxView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         self.purpleBoxView.bottomAnchor.constraint(equalTo: mainView.bottomAnchor, constant: -20).isActive = true
         self.purpleBoxView.widthAnchor.constraint(equalTo: mainView.widthAnchor, multiplier: 6/10).isActive = true
-        self.purpleBoxView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.purpleBoxView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         // orange view
         self.orangeView.trailingAnchor.constraint(equalTo: mainView.trailingAnchor, constant: -20).isActive = true
         self.orangeView.topAnchor.constraint(equalTo: mainView.topAnchor, constant: 20).isActive = true
         self.orangeView.widthAnchor.constraint(equalToConstant: 150).isActive = true
-        self.orangeView.heightAnchor.constraint(equalToConstant: 50).isActive = true
+        self.orangeView.heightAnchor.constraint(equalToConstant: 60).isActive = true
         // blue view
         self.blueView.centerYAnchor.constraint(equalTo: self.mainView.centerYAnchor).isActive = true
         self.blueView.centerXAnchor.constraint(equalTo: self.mainView.centerXAnchor).isActive = true
